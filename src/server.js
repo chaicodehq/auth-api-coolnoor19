@@ -10,7 +10,7 @@ async function start() {
     const port = process.env.PORT || 3000;
 
     // TODO: Read MONGO_URI from process.env, default to "mongodb://localhost:27017/auth_api"
-    const uri = process.env.MONGO_URI;
+    const uri = process.env.MONGO_URI || "mongodb://localhost:27017/auth";
 
     await connectDB(uri);
     const app = createApp();
