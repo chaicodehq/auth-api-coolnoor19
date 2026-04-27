@@ -1,4 +1,6 @@
 import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+dotenv.config();
 
 /**
  * TODO: Connect to MongoDB
@@ -9,4 +11,8 @@ import mongoose from 'mongoose';
  */
 export async function connectDB(uri) {
   // Your code here
+  if(!uri){
+    throw new Error("MongoDB URI is required")
+  }
+  return mongoose.connect(process.env.MONGO_URI)
 }

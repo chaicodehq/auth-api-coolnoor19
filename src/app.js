@@ -18,4 +18,22 @@ import { notFound } from './middlewares/notFound.middleware.js';
  */
 export function createApp() {
   // Your code here
+  const app = express()
+
+  app.use(express.json())
+ 
+
+  app.get("/health" , (req , res)=>{
+    res.json({
+      ok : true
+    })
+  })
+
+  app.use("/api/auth" , authRoutes)
+  app.use("/api/users" , userRoutes)
+
+   app.use(errorHandler)
+  app.use(notFound)
+
+  return app
 }
