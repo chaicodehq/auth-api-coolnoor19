@@ -14,5 +14,5 @@ export async function connectDB(uri) {
   if(!uri){
     throw new Error("MongoDB URI is required")
   }
-  return mongoose.connect(process.env.MONGO_URI)
+  return mongoose.connect(uri)
 }
